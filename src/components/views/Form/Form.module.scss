@@ -4,3 +4,8 @@
   width: fit-content;
   margin: $underBarSpace auto;
 }
+.buttonsBox {
+  display: flex;  
+  justify-content:space-between;
+  align-items: center;
+}

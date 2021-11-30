@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography, AppBar, Toolbar, Container } from '@material-ui/core';
+import { Typography, AppBar, Toolbar, Container } from '@mui/material';
 
 // import styles from './MainLayout.module.scss';
 
