@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm, formValueSelector} from 'redux-form';
 import { Stack, Box, Button, FormHelperText } from '@mui/material';
 
+import FormModal from '../../common/FormModal';
 import { validator } from './validator';
 import styles from './Form.module.scss';
 import { renderTextField, renderTimePicker, renderSelectField, renderNumberField } from './renderMUIfields';
 import { renderFloatNumberField, renderDiscreteSlider } from './renderMUIfields';
 import submit from './submit';
+import showModal from './showModal';
 
 
 let Form = (props) => {
@@ -30,6 +32,7 @@ let Form = (props) => {
           <Button type="button" disabled={pristine || submitting} onClick={reset} variant="contained" color="primary">Clear</Button>
         </Box>        
       </Stack>
+      <FormModal />
     </form>
   );
 };
@@ -43,10 +46,11 @@ Form.propTypes = {
   typeValue: PropTypes.string,
 };
 
+
 Form = reduxForm({
   form: 'dishes',
   validate: validator,
-
+  onSubmitSuccess: showModal,
 })(Form);
 
 const selector = formValueSelector('dishes');

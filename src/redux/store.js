@@ -1,15 +1,17 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
+import {combineReducers, createStore} from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { reducer as formReducer } from 'redux-form';
+import modalReducer from '../redux/modalRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
+  modal: {visible: false},
 };
 
 // define reducers
 const reducers = {
   form: formReducer,
+  modal: modalReducer,
 };
 
 // add blank reducers for initial state properties without reducers
@@ -26,8 +28,6 @@ const storeReducer = combineReducers(reducers);
 export const store = createStore(
   storeReducer,
   initialState,
-  composeWithDevTools(
-    applyMiddleware(thunk)
-  )
+  composeWithDevTools()
 );
 

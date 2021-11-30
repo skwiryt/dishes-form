@@ -1,1 +1,4 @@
-$underBarSpace: 32px;
+$baseSpace: 16px;
+
+$underBarSpace: 2*$baseSpace;
+$modalPadding: 2*$baseSpace;

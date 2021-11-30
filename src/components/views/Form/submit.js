@@ -14,7 +14,7 @@ async function submit(values) {
   };
   try {
     const response = await axios.post(API_URL + '/dishes', data);
-    window.alert(`You submitted:\n\n${JSON.stringify(response.data, null, 2)}`);
+    console.log('respone.data: ', response.data);
   }
   catch(err) {
     throw new SubmissionError({ _error: err.message });
